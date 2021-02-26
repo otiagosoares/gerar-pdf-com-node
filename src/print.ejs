@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>PDF com Node</title>
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        th{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="m-8">
+        <h1 class="text-3xl mb-8">Listagem de passageiros</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Número do voo</th>
+                    <th>Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(passengers.length > 0){ %>
+                    <% passengers.forEach( passenger =>{ %>
+                        <tr>
+                            <td><%= passenger.name %></td>
+                            <td><%= passenger.flightNumber %></td>
+                            <td><%= passenger.time %></td>
+                        </tr>
+                    <% }); %>
+                <% } %>
+            </tbody>
+            <tfoot>
+                <td>
+                    <td colspan="2"><%= passengers.length %> passageiros.</td>
+                </td>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
